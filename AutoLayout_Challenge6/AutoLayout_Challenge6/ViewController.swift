@@ -47,8 +47,8 @@ class ViewController: UIViewController {
     
     func imageTapped(sender: UITapGestureRecognizer)
     {
-        let image: UIImageView = sender.view as! UIImageView
-        let tag = image.tag
+        let image: UIImageView? = sender.view as? UIImageView
+        guard let tag = image?.tag else { return }
         let widthConstraint: NSLayoutConstraint = widthConstraints[tag]
         if currentImageView != nil && currentImageView != image {
             let currentWidthConstraint: NSLayoutConstraint = widthConstraints[(currentImageView?.tag)!]
